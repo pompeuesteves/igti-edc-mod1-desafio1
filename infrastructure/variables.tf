@@ -3,13 +3,28 @@ variable "aws_region" {
 }
 
 variable "account" {
-  default = 713051429766
+  default = "713051429766"
 }
 
 variable "tags" {
-  type = map
+  type = map(any)
   default = {
-    IES      = "IGTI"
-    CURSO    = "EDC"
+    IES       = "IGTI"
+    CURSO     = "EDC"
+    Project   = "RAIS"
+    ManagedBy = "Terraform"
   }
+}
+
+variable "prefix" {
+  default = "datalake-igti-edc"
+}
+
+variable "bucket_names" {
+  description = "Create S3 buckets with these names"
+  type        = list(string)
+  default = [
+    "raw-zone",
+    "staging-zone"
+  ]
 }
