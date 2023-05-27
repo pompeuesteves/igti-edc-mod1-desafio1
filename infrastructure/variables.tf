@@ -9,7 +9,22 @@ variable "account" {
 variable "tags" {
   type = map(any)
   default = {
-    IES   = "IGTI"
-    CURSO = "EDC"
+    IES       = "IGTI"
+    CURSO     = "EDC"
+    Project   = "RAIS"
+    ManagedBy = "Terraform"
   }
+}
+
+variable "prefix" {
+  default = "datalake-igti-edc"
+}
+
+variable "bucket_names" {
+  description = "Create S3 buckets with these names"
+  type        = list(string)
+  default = [
+    "raw-zone",
+    "staging-zone"
+  ]
 }
