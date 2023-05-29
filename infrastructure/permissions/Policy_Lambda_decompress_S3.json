@@ -38,8 +38,7 @@
             ],
             "Resource": [
                 "arn:aws:iam::713051429766:role/EMR_DefaultRole",
-                "arn:aws:iam::713051429766:role/EMR_EC2_DefaultRole",
-                "arn:aws:iam::713051429766:role/service-role/AmazonSageMaker-ExecutionRole-20210518T105032"
+                "arn:aws:iam::713051429766:role/EMR_EC2_DefaultRole"
             ]
         }
     ]
