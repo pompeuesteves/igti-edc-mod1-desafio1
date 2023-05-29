@@ -21,3 +21,6 @@ crash.log
 # to change depending on the environment.
 #
 *.tfvars
+
+
+lambda_function_payload.zip
