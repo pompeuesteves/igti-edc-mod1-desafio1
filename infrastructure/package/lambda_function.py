@@ -33,7 +33,7 @@ def handler(event, context):
                     'Ec2KeyName': 'ney-igti-teste',
                     'KeepJobFlowAliveWhenNoSteps': True,
                     'TerminationProtected': False,
-                    'Ec2SubnetId': 'subnet-1df20360'
+                    'Ec2SubnetId': 'subnet-01c0ccffca5debc1f'
                 },
 
                 Applications=[
@@ -96,22 +96,8 @@ def handler(event, context):
                                  's3://datalake-igti-edc-raw-zone-713051429766-tf/emr-code/pyspark/01_delta_spark_insert.py'
                                  ]
                     }
-                },
-                {
-                    'Name': 'Simulacao e UPSERT do ENEM',
-                    'ActionOnFailure': 'CONTINUE',
-                    'HadoopJarStep': {
-                        'Jar': 'command-runner.jar',
-                        'Args': ['spark-submit',
-                                 '--packages', 'io.delta:delta-core_2.12:1.0.0', 
-                                 '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
-                                 '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
-                                 '--master', 'yarn',
-                                 '--deploy-mode', 'cluster',
-                                 's3://datalake-igti-edc-raw-zone-713051429766-tf/emr-code/pyspark/02_delta_spark_upsert.py'
-                                 ]
-                    }
-                }],
+                }
+                ],
             )
     
     return {
