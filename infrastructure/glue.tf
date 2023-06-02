@@ -5,7 +5,7 @@ resource "aws_glue_job" "rais" {
   role_arn          = var.iam_role
   glue_version      = "3.0"
   worker_type       = "G.1X"
-  number_of_workers = 4
+  number_of_workers = 6
   max_retries       = 0
   timeout           = 30
 
