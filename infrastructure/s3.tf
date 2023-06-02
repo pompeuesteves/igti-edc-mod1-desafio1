@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "buckets" {
   tags = var.tags
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
   count  = length(var.bucket_names)
   bucket = aws_s3_bucket.buckets[count.index].id
   rule {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   }
 }
 
-resource "aws_s3_bucket_acl" "example" {
+resource "aws_s3_bucket_acl" "this" {
   count  = length(var.bucket_names)
   bucket = aws_s3_bucket.buckets[count.index].id
   acl    = "private"
